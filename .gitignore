@@ -1,0 +1,18 @@
+# Directorio de clases compiladas
+bin/
+
+# Archivos temporales de compilacion
+sources.txt
+*.class
+
+# Reportes generados en tiempo de ejecucion
+reportes/
+
+# Bitacoras y archivos del sistema
+*.log
+*.tmp
+Thumbs.db
+desktop.ini
+
+# Entornos locales (evitar subir claves reales de MySQL)
+db.properties.local
