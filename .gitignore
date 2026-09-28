@@ -14,5 +14,9 @@ reportes/
 Thumbs.db
 desktop.ini
 
+# Salida de consola del servidor web
+server-log.txt
+server-err.txt
+
 # Entornos locales (evitar subir claves reales de MySQL)
 db.properties.local
