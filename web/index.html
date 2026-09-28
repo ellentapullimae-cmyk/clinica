@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070d1a">
+<title>Clinica Salud | Sistema de Gestion</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- ==================== LOGIN ==================== -->
+<div id="loginView" class="login-view">
+  <div class="login-vista"></div>
+  <div class="login-panel">
+    <div class="login-caja">
+      <div class="login-logo">
+        <svg viewBox="0 0 48 48" width="52" height="52" aria-hidden="true">
+          <path d="M24 42s-15-9-15-19.2A9.1 9.1 0 0 1 24 16.4 9.1 9.1 0 0 1 39 22.8C39 33 24 42 24 42Z" fill="url(#hgl)"/>
+          <path d="M11.5 24h5l2.4-4.8 3.4 8.6 2.9-5.6 1.9 1.8h9.4" fill="none" stroke="#04121f" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="hgl" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#67e8f9"/><stop offset=".5" stop-color="#3b82f6"/><stop offset="1" stop-color="#0891b2"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <h1>Clinica Salud<br><span>Sistema de Gestion</span></h1>
+      <p class="login-sub">Inicie sesion con sus credenciales</p>
+
+      <form id="loginForm" autocomplete="off">
+        <label class="campo">
+          <svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 20 c0-4 3.6-6 8-6 s8 2 8 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input id="loginUsuario" type="text" placeholder="Usuario" required>
+        </label>
+        <label class="campo">
+          <svg viewBox="0 0 24 24" width="18" height="18"><rect x="5" y="11" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 11 V7 a4 4 0 0 1 8 0 v4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          <input id="loginClave" type="password" placeholder="Contrasena" required>
+        </label>
+        <div id="loginError" class="login-error" role="alert"></div>
+        <button id="loginBoton" type="submit" class="btn btn-primario btn-block">
+          <svg viewBox="0 0 24 24" width="17" height="17" style="fill:none;stroke:currentColor;stroke-width:2"><path d="M10 17l5-5-5-5M15 12H3" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5" stroke-linecap="round"/></svg>
+          Iniciar sesion
+        </button>
+        <div class="login-roles">
+          <span>Administrador</span><span>Recepcionista</span><span>Medico</span>
+        </div>
+        <p class="login-pie">Paginas de ejemplo: admin/admin123</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== APP ==================== -->
+<div id="appView" class="app-view" hidden>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- ---------- SIDEBAR ---------- -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-cabeza">
+      <div class="sidebar-marca">
+        <div class="marca-ico">
+          <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true">
+            <path d="M24 42s-15-9-15-19.2A9.1 9.1 0 0 1 24 16.4 9.1 9.1 0 0 1 39 22.8C39 33 24 42 24 42Z" fill="url(#hgs)"/>
+            <path d="M11.5 24h5l2.4-4.8 3.4 8.6 2.9-5.6 1.9 1.8h9.4" fill="none" stroke="#04121f" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="hgs" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#67e8f9"/><stop offset=".5" stop-color="#3b82f6"/><stop offset="1" stop-color="#0891b2"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div>
+          <strong>Clinica Salud</strong>
+          <span>Sistema de Gestion</span>
+        </div>
+      </div>
+    </div>
+
+    <nav id="sidebarNav" class="sidebar-nav" aria-label="Menu principal"></nav>
+
+    <div id="sidebarUsuario" class="sidebar-usuario"></div>
+  </aside>
+
+  <!-- ---------- CUERPO ---------- -->
+  <div class="app-cuerpo">
+    <header class="app-header">
+      <div class="header-izq">
+        <button id="btnMenu" class="icono-btn" aria-label="Abrir menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="22" height="22" style="fill:none;stroke:currentColor;stroke-width:2"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/></svg>
+        </button>
+        <h1 id="tituloPagina">Dashboard</h1>
+      </div>
+
+      <div class="header-der">
+        <!-- Buscador global -->
+        <div class="buscador-global" role="search">
+          <svg viewBox="0 0 24 24" width="18" height="18" style="fill:none;stroke:currentColor;stroke-width:1.9"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5" stroke-linecap="round"/></svg>
+          <input id="buscarGlobal" type="search" autocomplete="off" placeholder="Buscar pacientes, medicos, citas..." aria-label="Buscar pacientes, medicos, citas">
+          <span class="buscador-kbd">/</span>
+        </div>
+
+        <!-- Notificaciones -->
+        <div class="notif">
+          <button id="btnNotif" class="icono-btn" aria-label="Notificaciones" aria-expanded="false">
+            <svg viewBox="0 0 24 24" width="20" height="20" style="fill:none;stroke:currentColor;stroke-width:1.9"><path d="M18 9a6 6 0 1 0-12 0c0 6-2 7-2 7h16s-2-1-2-7Z" stroke-linejoin="round"/><path d="M13.7 20a2 2 0 0 1-3.4 0" stroke-linecap="round"/></svg>
+            <span id="notifContador" class="notif-contador">0</span>
+          </button>
+          <div id="notifPanel" class="notif-panel" hidden>
+            <div class="notif-cabeza">
+              <strong>Notificaciones</strong>
+              <span id="notifResumen" class="chip">0 avisos</span>
+            </div>
+            <div id="notifLista" class="notif-lista"></div>
+            <div class="notif-pie">
+              <button id="notifMarcar" class="btn btn-secundario btn-sm btn-block" onclick="marcarTodasLeidas()">✓ Marcar todas como leidas</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Usuario + dropdown -->
+        <div class="perfil">
+          <button id="perfilBtn" class="usuario-chip" aria-haspopup="true" aria-expanded="false">
+            <span class="avatar avatar-md" id="avatarLetra" title="Ver foto de perfil">U</span>
+            <span class="chip-datos">
+              <strong id="usuarioNombre">-</strong>
+              <span id="usuarioRol">-</span>
+            </span>
+            <svg class="chip-caret" viewBox="0 0 24 24" width="16" height="16" style="fill:none;stroke:currentColor;stroke-width:2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div id="perfilMenu" class="perfil-menu" hidden>
+            <div class="perfil-cab">
+              <span class="avatar foto-avatar" id="perfilAvatar" title="Ver foto de perfil">U</span>
+              <div>
+                <strong id="perfilNombre">-</strong>
+                <span id="perfilRol">-</span>
+              </div>
+            </div>
+            <button class="perfil-item" onclick="$('fotoArchivo').click()"><span class="pi">📷</span> Cambiar foto de perfil</button>
+            <button class="perfil-item" onclick="navegar('clave')"><span class="pi">🔐</span> Cambiar contrasena</button>
+            <button class="perfil-item" onclick="navegar('estadisticas')"><span class="pi">📈</span> Ver estadisticas</button>
+            <div class="perfil-sep"></div>
+            <button class="perfil-item peligro" onclick="cerrarSesion()"><span class="pi">🚪</span> Cerrar sesion</button>
+          </div>
+
+          <input type="file" id="fotoArchivo" accept="image/png,image/jpeg,image/webp" hidden>
+        </div>
+      </div>
+    </header>
+
+    <main id="contenido" class="contenido"></main>
+  </div>
+</div>
+
+<!-- ==================== MODAL ==================== -->
+<div id="modalFondo" class="modal-fondo" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+    <div class="modal-cabeza">
+      <h2 id="modalTitulo">Titulo</h2>
+      <button id="modalCerrar" class="icono-btn" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" width="20" height="20" style="fill:none;stroke:currentColor;stroke-width:2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div id="modalCuerpo" class="modal-cuerpo"></div>
+    <div class="modal-pie">
+      <button id="modalCancelar" class="btn btn-secundario">Cancelar</button>
+      <button id="modalAceptar" class="btn btn-primario">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MODAL DE FOTO DE PERFIL ==================== -->
+<!-- Muestra la MISMA foto ya configurada del usuario (object-fit: contain).
+     El avatar del header, el del sidebar y el del menu de perfil lo abren. -->
+<div id="fotoModal" class="foto-modal-fondo" hidden>
+  <div class="foto-modal" role="dialog" aria-modal="true" aria-labelledby="fotoModalNombre">
+    <button id="fotoCerrar" class="foto-cerrar" onclick="cerrarFotoModal()" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" width="18" height="18" style="fill:none;stroke:currentColor;stroke-width:2.2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+    </button>
+    <div class="foto-marco">
+      <img id="fotoGrande" class="foto-grande" alt="Foto de perfil">
+      <div id="fotoInicial" class="foto-inicial" hidden><span id="fotoInicialLetra">A</span></div>
+    </div>
+    <div class="foto-pie">
+      <strong id="fotoModalNombre">Administrador del Sistema</strong>
+      <span id="fotoModalRol">Administrador</span>
+      <div class="foto-acciones">
+        <button class="btn btn-secundario btn-sm" onclick="$('fotoArchivo').click()">📷 Cambiar foto</button>
+        <button class="btn btn-primario btn-sm" onclick="cerrarFotoModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toasts" class="toasts" aria-live="polite"></div>
+
+<script src="/app.js"></script>
+</body>
+</html>
